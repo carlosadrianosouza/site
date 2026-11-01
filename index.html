@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Hospedagem - Locaweb</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #071d49, #0875d1);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            background: white;
+            color: #333;
+            max-width: 600px;
+            width: 100%;
+            padding: 45px 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #0755a5;
+            margin-bottom: 15px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .status {
+            display: inline-block;
+            background: #d9fbe5;
+            color: #168344;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .info {
+            background: #f1f5f9;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            background: #0875d1;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #064f91;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="icon">🌐</div>
+
+        <h1>Minha hospedagem está funcionando!</h1>
+
+        <p>
+            Bem-vindo à minha página de teste.
+            Este site foi publicado para verificar
+            o funcionamento da hospedagem web.
+        </p>
+
+        <div class="status">
+            ● SITE ONLINE
+        </div>
+
+        <div class="info">
+            <p><strong>Servidor:</strong> Locaweb</p>
+            <p><strong>Arquivo:</strong> index.html</p>
+            <p><strong>Data e hora:</strong></p>
+            <p id="relogio">Carregando...</p>
+            <p><strong>JavaScript:</strong> <span id="js">Ativo</span></p>
+        </div>
+
+        <button onclick="testar()">
+            Testar funcionamento
+        </button>
+
+        <footer>
+            Página criada para teste de hospedagem web.
+            <br>
+            HTML5 • CSS3 • JavaScript
+        </footer>
+
+    </div>
+
+    <script>
+        function atualizarRelogio() {
+            const agora = new Date();
+
+            document.getElementById("relogio").textContent =
+                agora.toLocaleString("pt-BR");
+        }
+
+        function testar() {
+            alert("Sucesso! O HTML e o JavaScript estão funcionando!");
+        }
+
+        atualizarRelogio();
+        setInterval(atualizarRelogio, 1000);
+    </script>
+
+</body>
+</html>
