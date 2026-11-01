@@ -35,7 +35,10 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           # Diretório local gerado pelo build (ex: ./dist, ./build, ./out ou ./ se for HTML/PHP puro):
-          local-dir: ./dist/
+          local-dir: ./
+          #local-dir: ./dist/
           # Diretório no servidor da Locaweb (geralmente /public_html/ no Linux ou /web/ no Windows):
-          server-dir: /public_html/
+          #server-dir: /public_html/
+          server-dir: /htdocs/
+          
           protocol: ftps # Tenta conexão segura; mude para 'ftp' se sua conta não suportar FTPS
