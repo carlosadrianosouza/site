@@ -1,0 +1,41 @@
+name: Deploy Locaweb
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Permite disparar o deploy manualmente pela aba Actions
+
+jobs:
+  web-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      # Se o seu site precisar de build (ex: React, Vue, Next export, Astro):
+      # Remova ou comente este bloco se o seu projeto for HTML/CSS puro ou PHP sem build.
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies & Build
+        run: |
+          npm ci
+          npm run build
+
+      # Envio dos arquivos via FTP/FTPS
+      - name: Sync via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Diretório local gerado pelo build (ex: ./dist, ./build, ./out ou ./ se for HTML/PHP puro):
+          local-dir: ./dist/
+          # Diretório no servidor da Locaweb (geralmente /public_html/ no Linux ou /web/ no Windows):
+          server-dir: /public_html/
+          protocol: ftps # Tenta conexão segura; mude para 'ftp' se sua conta não suportar FTPS
