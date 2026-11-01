@@ -17,15 +17,15 @@ jobs:
 
       # Se o seu site precisar de build (ex: React, Vue, Next export, Astro):
       # Remova ou comente este bloco se o seu projeto for HTML/CSS puro ou PHP sem build.
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
 
-      - name: Install dependencies & Build
-        run: |
-          npm ci
-          npm run build
+      # - name: Install dependencies & Build
+      #   run: |
+      #     npm ci
+      #     npm run build
 
       # Envio dos arquivos via FTP/FTPS
       - name: Sync via FTP
